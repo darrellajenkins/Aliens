@@ -54,6 +54,8 @@ class Scoreboard:
     def prep_level(self):
         """Turn the level into a rendered image."""
         level_str = 'L' + str(self.stats.level)
+        play_game = pygame.mixer.Sound('forceField_003.ogg')  # *** 08/04/24
+        play_game.play()  # *** 08/04/24
         self.level_image = self.font.render(level_str, True, self.text_color, self.settings.bg_color)
         self.level_rect = self.level_image.get_rect()
         self.level_rect.right = self.score_rect.right

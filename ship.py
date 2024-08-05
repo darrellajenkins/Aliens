@@ -1,3 +1,4 @@
+import time
 import pygame
 from pygame.sprite import Sprite
 
@@ -14,7 +15,8 @@ class Ship(Sprite):
         self.image = pygame.image.load('ship.bmp')
         self.rect = self.image.get_rect()
         self.rect.midbottom = self.screen_rect.midbottom
-
+        # forcefield = pygame.mixer.Sound('forceField_003.ogg')  # *** 08/04/24
+        # forcefield.play()  # *** 08/04/24
         self.x = float(self.rect.x)
         self.moving_right = False
         self.moving_left = False

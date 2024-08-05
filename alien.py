@@ -10,6 +10,8 @@ class Alien(Sprite):
         self.screen = ai.screen
         self.settings = ai.settings
         self.image = pygame.image.load('alien.bmp')
+        self.music = pygame.mixer.music.load('thrusterFire_000.ogg')  # *** 08/04/24
+        pygame.mixer.music.play(-1)  # *** 08/04/24
         self.rect = self.image.get_rect()
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height

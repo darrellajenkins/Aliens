@@ -1,5 +1,6 @@
 
 import sys
+import time
 from time import sleep
 
 import pygame
@@ -73,6 +74,8 @@ class AlienInvasion:
             self.aliens.empty()
             self._create_fleet()
             self.ship.center_ship()
+            play_game = pygame.mixer.Sound('powerUp1.ogg')  # *** 08/04/24
+            play_game.play()  # *** 08/04/24
             pygame.mouse.set_visible(False)
 
     def _check_keydown_events(self, event):
@@ -88,6 +91,8 @@ class AlienInvasion:
         elif event.key == pygame.K_p:  # Code added here per assignment 14-1.
             self._check_p_key(event)
         elif event.key == pygame.K_SPACE:
+            fire_bullet = pygame.mixer.Sound('laserLarge_003.ogg')  # *** 08/04/24
+            fire_bullet.play()  # *** 08/04/24
             self._fire_bullet()
 
     def _check_p_key(self, event):  # Code added here per assignment 14-1.
@@ -102,6 +107,8 @@ class AlienInvasion:
             self.aliens.empty()
             self._create_fleet()
             self.ship.center_ship()
+            play_game = pygame.mixer.Sound('powerUp1.ogg')  # *** 08/04/24
+            play_game.play()  # *** 08/04/24
             pygame.mouse.set_visible(False)
 
     def _check_keyup_events(self, event):
@@ -167,8 +174,8 @@ class AlienInvasion:
         """Create the fleet of aliens. Keep adding aliens until there no room left. Spacing between aliens = one alien width, one alien height."""
         alien = Alien(self)
         alien_width, alien_height = alien.rect.size
-
         current_x, current_y = alien_width, alien_height
+
         while current_y < (self.settings.screen_height - 3 * alien_height):
             while current_x < (self.settings.screen_width - 2 * alien_width):
                 self._create_alien(current_x, current_y)
@@ -193,7 +200,7 @@ class AlienInvasion:
                 break
 
     def _change_fleet_direction(self):
-        """Drop the entire gleet and change the fleet's direction."""
+        """Drop the entire fleet and change the fleet's direction."""
         for alien in self.aliens.sprites():
             alien.rect.y += self.settings.fleet_drop_speed
         self.settings.fleet_direction *= -1
@@ -209,8 +216,12 @@ class AlienInvasion:
 
             self._create_fleet()
             self.ship.center_ship()
-            sleep(0.5)
+            explosion = pygame.mixer.Sound('explosionCrunch_002.ogg')  # *** 08/04/24
+            explosion.play()  # *** 08/04/24
+            sleep(1.5)
         else:
+            gameover = pygame.mixer.Sound('highDown.ogg')  # *** 08/04/24
+            gameover.play()  # *** 08/04/24
             self.game_active = False
             pygame.mouse.set_visible(True)
 

@@ -8,6 +8,7 @@ class GameStats:
         with open("high_score.txt") as data:
             self.high_score = data.read()
             self.high_score = int(self.high_score)
+
     def reset_stats(self):
         """Initialize statistics that can change during the game."""
         self.ships_left = self.settings.ship_limit
