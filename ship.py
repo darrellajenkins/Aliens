@@ -12,7 +12,7 @@ class Ship(Sprite):
         self.screen = ai.screen  # ai instance screen attribute - by way of composition
         self.settings = ai.settings  # ai instance settings attribute - by way of composition
         self.screen_rect = ai.screen.get_rect()  # ai instance screen get_rect attribute - by way of composition
-        self.image = pygame.image.load('ship.bmp')
+        self.image = pygame.image.load('ship-blk.bmp')
         self.rect = self.image.get_rect()
         self.rect.midbottom = self.screen_rect.midbottom
         # forcefield = pygame.mixer.Sound('forceField_003.ogg')  # *** 08/04/24
